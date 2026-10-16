@@ -1,0 +1,537 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Shivam Mourya</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@700;800&display=swap">
+<style>
+/* Layout concept: a quiet paper-coloured frame so the colourful post work carries the page.
+   Each organisation is introduced like a profile (role, period, what was done), then its posts sit in a masonry wall. */
+:root{
+  --bg:#EEF0F5;
+  --surface:#FFFFFF;
+  --fg:#0F1424;
+  --muted:#505870;
+  --line:#D2D7E3;
+  --soft:#E1E5F1;
+  --accent:#2D3CEF;
+  --accent-ink:#FFFFFF;
+  --scrim:rgba(11,14,26,.92);
+  --on-scrim:#F3F5FB;
+  --font-display:"Syne","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C0F1A; --surface:#151A29; --fg:#E9ECF6; --muted:#9AA3BC; --line:#262D44; --soft:#1B2136;
+    --accent:#8E99FF; --accent-ink:#0C0F1A; --scrim:rgba(4,6,12,.94);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C0F1A; --surface:#151A29; --fg:#E9ECF6; --muted:#9AA3BC; --line:#262D44; --soft:#1B2136;
+  --accent:#8E99FF; --accent-ink:#0C0F1A; --scrim:rgba(4,6,12,.94);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font:400 16px/1.6 var(--font-body);
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--accent);text-underline-offset:3px}
+ul{margin:0;padding:0;list-style:none}
+h1,h2,h3,p{margin:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.wrap{
+  width:100%;
+  max-width:1240px;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+.mono{font:500 12px/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* header */
+.top{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:20;
+  background:var(--bg);
+  border-bottom:1px solid var(--line);
+}
+.bar{display:flex;align-items:center;gap:20px;padding-block:12px}
+.brand{flex:none;font:700 17px/1 var(--font-display);letter-spacing:-.01em;color:var(--fg);text-decoration:none}
+.nav{display:flex;gap:20px;margin-left:auto;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;padding-block:4px}
+.nav a:hover{color:var(--accent)}
+
+section{scroll-margin-top:64px}
+.band{padding-block:clamp(48px,7vw,96px)}
+.band + .band{border-top:1px solid var(--line)}
+
+/* hero */
+.hero{padding-block:clamp(40px,8vw,104px) clamp(40px,6vw,72px)}
+.hero h1{
+  margin-top:16px;
+  font:800 clamp(3.1rem,13vw,8rem)/.9 var(--font-display);
+  letter-spacing:-.035em;
+}
+.hero h1 span{display:block}
+.lede{margin-top:28px;max-width:52ch;font-size:clamp(1.05rem,2.4vw,1.3rem);line-height:1.55}
+.status{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-weight:500}
+.status::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.proof{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 20px;margin-top:clamp(40px,6vw,72px)}
+.proof li{border-top:1px solid var(--fg);padding-top:14px}
+.proof strong{display:block;font:800 clamp(1.3rem,3.4vw,2rem)/1.05 var(--font-display);letter-spacing:-.02em;color:var(--accent)}
+.proof span{display:block;margin-top:8px;font-size:14px;line-height:1.45;color:var(--muted)}
+
+/* headings */
+h2{font:700 clamp(1.9rem,5vw,3rem)/1.05 var(--font-display);letter-spacing:-.02em;text-wrap:balance}
+.intro{margin-top:14px;max-width:58ch;color:var(--muted);font-size:1.05rem}
+
+/* organisations */
+.org{margin-top:clamp(48px,7vw,80px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--fg)}
+.org-head{display:grid;gap:24px}
+.org h3{margin-top:10px;font:700 clamp(1.6rem,4vw,2.2rem)/1.1 var(--font-display);letter-spacing:-.015em}
+.sub{margin-top:8px;color:var(--muted)}
+.ext{display:inline-block;margin-top:18px;font-weight:600}
+.points li{padding-block:11px;border-top:1px solid var(--line)}
+.points li:first-child{border-top:0;padding-top:0}
+
+.wall{margin-top:36px;column-count:2;column-gap:12px}
+.wall li{break-inside:avoid;margin-bottom:16px}
+.tile{
+  display:block;width:100%;margin:0;padding:0;border:0;background:none;
+  text-align:left;color:inherit;font:inherit;cursor:zoom-in;
+  -webkit-appearance:none;appearance:none;
+}
+.tile img{width:100%;border:1px solid var(--line);border-radius:3px;background:var(--soft);transition:border-color .15s}
+.tile:hover img{border-color:var(--accent)}
+.cap{display:flex;justify-content:space-between;gap:10px;margin-top:7px;font:400 11px/1.4 var(--font-mono);color:var(--muted)}
+.cap b{font-weight:500;color:var(--fg)}
+.cap i{font-style:normal;flex:none;text-align:right}
+
+/* newsletter */
+.esp-head{display:grid;gap:20px;max-width:70ch}
+.esp-head p{font-size:1.05rem}
+.pages{display:flex;gap:14px;margin-top:36px;padding-bottom:14px;overflow-x:auto;scroll-snap-type:x mandatory}
+.pages li{flex:0 0 min(64vw,250px);scroll-snap-align:start}
+
+/* entries */
+.entries{display:grid;gap:36px 40px;margin-top:40px}
+.entry{border-top:1px solid var(--fg);padding-top:16px}
+.entry h3{margin-top:8px;font:700 1.35rem/1.2 var(--font-display);letter-spacing:-.01em}
+.entry p{margin-top:10px;color:var(--muted);max-width:60ch}
+
+/* skills */
+.groups{display:grid;gap:32px 40px;margin-top:40px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.groups h3{font:500 12px/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:10px;border-bottom:1px solid var(--fg)}
+.groups ul{margin-top:12px}
+.groups li{padding-block:3px}
+
+/* education */
+.edu{display:grid;gap:40px;margin-top:40px}
+.edu h3{font:500 12px/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:10px;border-bottom:1px solid var(--fg)}
+.edu li{padding-block:12px;border-bottom:1px solid var(--line)}
+.edu small{display:block;color:var(--muted);font-size:14px}
+
+/* contact */
+.contact h2{max-width:14ch}
+.mail{margin-top:28px;font:700 clamp(1.15rem,4.6vw,2.2rem)/1.2 var(--font-display);letter-spacing:-.01em;overflow-wrap:anywhere}
+.mail a{color:var(--fg);text-decoration-color:var(--accent)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;align-items:center}
+.btn{
+  display:inline-block;padding:12px 18px;border:1px solid var(--fg);border-radius:2px;
+  background:transparent;color:var(--fg);font:600 15px/1.2 var(--font-body);text-decoration:none;cursor:pointer;
+  -webkit-appearance:none;appearance:none;
+}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{border-color:var(--accent)}
+.note{min-height:1.4em;margin-top:10px;font-size:14px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:14px}
+
+/* lightbox */
+#lb{
+  position:fixed;inset:0;z-index:50;background:var(--scrim);color:var(--on-scrim);
+  display:flex;flex-direction:column;gap:12px;
+  padding-top:calc(14px + env(safe-area-inset-top, 0px));
+  padding-bottom:calc(14px + env(safe-area-inset-bottom, 0px));
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+.lb-top,.lb-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:none}
+.lb-title{font:500 13px/1.4 var(--font-mono);min-width:0}
+.lb-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.lb-stage img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:2px}
+.lb-btn{
+  padding:9px 14px;border:1px solid var(--on-scrim);border-radius:2px;background:transparent;color:var(--on-scrim);
+  font:500 14px/1 var(--font-body);cursor:pointer;-webkit-appearance:none;appearance:none;
+}
+.lb-btn:hover{background:var(--on-scrim);color:#0C0F1A}
+.lb-count{font:400 12px/1 var(--font-mono);opacity:.8}
+
+@media (min-width:720px){
+  .wall{column-count:3;column-gap:16px}
+  .entries{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .groups{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .edu{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .proof{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (min-width:900px){
+  .org-head{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:start}
+}
+@media (min-width:980px){
+  .pages{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));overflow:visible}
+  .pages li{flex:none}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .tile img{transition:none}
+}
+</style>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top">Shivam Mourya</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#espresso">Espresso</a>
+      <a href="#research">Research</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="mono">Digital marketing · Mumbai</p>
+      <h1><span>Shivam</span><span>Mourya</span></h1>
+      <p class="lede">MBA Marketing graduate. I run social media, plan campaigns and do the market research behind them, for a university, a student-led enterprise and an events company.</p>
+      <p class="status">Open to digital marketing roles</p>
+      <ul class="proof">
+        <li><strong>25–30K</strong><span>reach and impressions in one month at Universal AI University</span></li>
+        <li><strong>Published</strong><span>research paper in a Scopus-indexed marketing journal</span></li>
+        <li><strong>Recommended</strong><span>Letter of Recommendation for Bioxera Pharma market research</span></li>
+        <li><strong>Winner</strong><span>university-level business plan competition</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" id="work">
+    <div class="wrap">
+      <h2>Selected work</h2>
+      <p class="intro">Instagram work from three organisations. Tap any post to see it larger, or open the live page.</p>
+
+      <article class="org">
+        <div class="org-head">
+          <div>
+            <p class="mono">Social media and digital marketing</p>
+            <h3>Universal AI University</h3>
+            <p class="sub">Karjat, Maharashtra · School of Music, Sound &amp; Cinematics page</p>
+            <a class="ext" href="https://www.instagram.com/schoolofmusicsoundcinematics/" target="_blank" rel="noopener noreferrer">Open the Instagram page ↗</a>
+          </div>
+          <ul class="points">
+            <li>Built and managed the social media presence of new university departments through content planning and campaign execution.</li>
+            <li>Generated about 25K–30K reach and impressions in one month.</li>
+            <li>Created digital content, event coverage and promotional campaigns tied to the university's communication objectives.</li>
+          </ul>
+        </div>
+        <ul class="wall" data-set="uai">
+<li><button class="tile" type="button" data-i="0" data-src="img/uai-01.jpg" data-title="Make it Your Profession" data-date="May 2025" aria-label="View larger: Make it Your Profession"><img src="img/uai-01.jpg" width="1000" height="1003" loading="lazy" decoding="async" alt="Universal AI University Instagram post: Make it Your Profession"><span class="cap"><b>Make it Your Profession</b><i>May 2025</i></span></button></li>
+<li><button class="tile" type="button" data-i="1" data-src="img/uai-02.jpg" data-title="Sonic Alchemy online workshop" data-date="May 2025" aria-label="View larger: Sonic Alchemy online workshop"><img src="img/uai-02.jpg" width="1000" height="869" loading="lazy" decoding="async" alt="Universal AI University Instagram post: Sonic Alchemy online workshop"><span class="cap"><b>Sonic Alchemy online workshop</b><i>May 2025</i></span></button></li>
+<li><button class="tile" type="button" data-i="2" data-src="img/uai-03.jpg" data-title="EMPM mentor session: Sudan" data-date="Mar 2025" aria-label="View larger: EMPM mentor session: Sudan"><img src="img/uai-03.jpg" width="1000" height="1247" loading="lazy" decoding="async" alt="Universal AI University Instagram post: EMPM mentor session: Sudan"><span class="cap"><b>EMPM mentor session: Sudan</b><i>Mar 2025</i></span></button></li>
+<li><button class="tile" type="button" data-i="3" data-src="img/uai-04.jpg" data-title="EMPM mentor session: Hitansu Patnaik" data-date="Mar 2025" aria-label="View larger: EMPM mentor session: Hitansu Patnaik"><img src="img/uai-04.jpg" width="1000" height="1250" loading="lazy" decoding="async" alt="Universal AI University Instagram post: EMPM mentor session: Hitansu Patnaik"><span class="cap"><b>EMPM mentor session: Hitansu Patnaik</b><i>Mar 2025</i></span></button></li>
+<li><button class="tile" type="button" data-i="4" data-src="img/uai-05.jpg" data-title="Know Our Gear at SMSC Studio" data-date="Sep 2025" aria-label="View larger: Know Our Gear at SMSC Studio"><img src="img/uai-05.jpg" width="1000" height="1240" loading="lazy" decoding="async" alt="Universal AI University Instagram post: Know Our Gear at SMSC Studio"><span class="cap"><b>Know Our Gear at SMSC Studio</b><i>Sep 2025</i></span></button></li>
+<li><button class="tile" type="button" data-i="5" data-src="img/uai-06.jpg" data-title="Summer Internship Diaries" data-date="Jul 2025" aria-label="View larger: Summer Internship Diaries"><img src="img/uai-06.jpg" width="1000" height="1237" loading="lazy" decoding="async" alt="Universal AI University Instagram post: Summer Internship Diaries"><span class="cap"><b>Summer Internship Diaries</b><i>Jul 2025</i></span></button></li>
+<li><button class="tile" type="button" data-i="6" data-src="img/uai-07.jpg" data-title="Counsellors and principals visit the studio" data-date="Jul 2025" aria-label="View larger: Counsellors and principals visit the studio"><img src="img/uai-07.jpg" width="1000" height="1247" loading="lazy" decoding="async" alt="Universal AI University Instagram post: Counsellors and principals visit the studio"><span class="cap"><b>Counsellors and principals visit the studio</b><i>Jul 2025</i></span></button></li>
+<li><button class="tile" type="button" data-i="7" data-src="img/uai-08.jpg" data-title="The Piano" data-date="Jan 2025" aria-label="View larger: The Piano"><img src="img/uai-08.jpg" width="1000" height="999" loading="lazy" decoding="async" alt="Universal AI University Instagram post: The Piano"><span class="cap"><b>The Piano</b><i>Jan 2025</i></span></button></li>
+<li><button class="tile" type="button" data-i="8" data-src="img/uai-09.jpg" data-title="Tabla 101" data-date="Feb 2025" aria-label="View larger: Tabla 101"><img src="img/uai-09.jpg" width="1000" height="999" loading="lazy" decoding="async" alt="Universal AI University Instagram post: Tabla 101"><span class="cap"><b>Tabla 101</b><i>Feb 2025</i></span></button></li>
+        </ul>
+      </article>
+
+      <article class="org">
+        <div class="org-head">
+          <div>
+            <p class="mono">Chief Innovation Officer, Digital Marketing</p>
+            <h3>Excolearn Pvt. Ltd.</h3>
+            <p class="sub">College club</p>
+            <a class="ext" href="https://www.instagram.com/excolearn.pvt.ltd/" target="_blank" rel="noopener noreferrer">Open the Instagram page ↗</a>
+          </div>
+          <ul class="points">
+            <li>Led the club's digital marketing and contributed to campaign planning.</li>
+            <li>Coordinated and mentored the content team.</li>
+            <li>Promoted events and initiatives to lift digital engagement, from Campus Roadies and Crime Run to Daawat and Midnight Sunrise.</li>
+          </ul>
+        </div>
+        <ul class="wall" data-set="exc">
+<li><button class="tile" type="button" data-i="0" data-src="img/exc-01.jpg" data-title="Campus Roadies: Day 1" data-date="" aria-label="View larger: Campus Roadies: Day 1"><img src="img/exc-01.jpg" width="1000" height="1714" loading="lazy" decoding="async" alt="Excolearn Instagram post: Campus Roadies: Day 1"><span class="cap"><b>Campus Roadies: Day 1</b></span></button></li>
+<li><button class="tile" type="button" data-i="1" data-src="img/exc-02.jpg" data-title="Campus Roadies: panel selection round" data-date="" aria-label="View larger: Campus Roadies: panel selection round"><img src="img/exc-02.jpg" width="1000" height="1333" loading="lazy" decoding="async" alt="Excolearn Instagram post: Campus Roadies: panel selection round"><span class="cap"><b>Campus Roadies: panel selection round</b></span></button></li>
+<li><button class="tile" type="button" data-i="2" data-src="img/exc-03.jpg" data-title="Crime Run" data-date="" aria-label="View larger: Crime Run"><img src="img/exc-03.jpg" width="1000" height="1714" loading="lazy" decoding="async" alt="Excolearn Instagram post: Crime Run"><span class="cap"><b>Crime Run</b></span></button></li>
+<li><button class="tile" type="button" data-i="3" data-src="img/exc-04.jpg" data-title="Goa 2026, coming soon" data-date="Dec 2025" aria-label="View larger: Goa 2026, coming soon"><img src="img/exc-04.jpg" width="1000" height="1390" loading="lazy" decoding="async" alt="Excolearn Instagram post: Goa 2026, coming soon"><span class="cap"><b>Goa 2026, coming soon</b><i>Dec 2025</i></span></button></li>
+<li><button class="tile" type="button" data-i="4" data-src="img/exc-05.jpg" data-title="Club Wars: Bread Butter Banter" data-date="Nov 2024" aria-label="View larger: Club Wars: Bread Butter Banter"><img src="img/exc-05.jpg" width="1000" height="1250" loading="lazy" decoding="async" alt="Excolearn Instagram post: Club Wars: Bread Butter Banter"><span class="cap"><b>Club Wars: Bread Butter Banter</b><i>Nov 2024</i></span></button></li>
+<li><button class="tile" type="button" data-i="5" data-src="img/exc-06.jpg" data-title="The Ultimate Networking Night" data-date="Dec 2024" aria-label="View larger: The Ultimate Networking Night"><img src="img/exc-06.jpg" width="1000" height="999" loading="lazy" decoding="async" alt="Excolearn Instagram post: The Ultimate Networking Night"><span class="cap"><b>The Ultimate Networking Night</b><i>Dec 2024</i></span></button></li>
+<li><button class="tile" type="button" data-i="6" data-src="img/exc-07.jpg" data-title="Dawat donation drive" data-date="Nov 2024" aria-label="View larger: Dawat donation drive"><img src="img/exc-07.jpg" width="1000" height="999" loading="lazy" decoding="async" alt="Excolearn Instagram post: Dawat donation drive"><span class="cap"><b>Dawat donation drive</b><i>Nov 2024</i></span></button></li>
+<li><button class="tile" type="button" data-i="7" data-src="img/exc-08.jpg" data-title="Midnight Sunrise" data-date="Dec 2023" aria-label="View larger: Midnight Sunrise"><img src="img/exc-08.jpg" width="1000" height="999" loading="lazy" decoding="async" alt="Excolearn Instagram post: Midnight Sunrise"><span class="cap"><b>Midnight Sunrise</b><i>Dec 2023</i></span></button></li>
+<li><button class="tile" type="button" data-i="8" data-src="img/exc-09.jpg" data-title="Daawat 2023" data-date="Nov 2023" aria-label="View larger: Daawat 2023"><img src="img/exc-09.jpg" width="1000" height="999" loading="lazy" decoding="async" alt="Excolearn Instagram post: Daawat 2023"><span class="cap"><b>Daawat 2023</b><i>Nov 2023</i></span></button></li>
+        </ul>
+      </article>
+
+      <article class="org">
+        <div class="org-head">
+          <div>
+            <p class="mono">Social Media Intern · Jul 2021 – Dec 2022</p>
+            <h3>Rio Events</h3>
+            <p class="sub">Event management company</p>
+            <a class="ext" href="https://www.instagram.com/eventsbyrio/" target="_blank" rel="noopener noreferrer">Open the Instagram page ↗</a>
+          </div>
+          <ul class="points">
+            <li>Supported social media strategy, content planning and promotional campaigns for private and corporate events.</li>
+            <li>Coordinated content creation, campaign execution, event coverage, photography and videography.</li>
+            <li>Coordinated a team of 3.</li>
+          </ul>
+        </div>
+        <ul class="wall" data-set="rio">
+<li><button class="tile" type="button" data-i="0" data-src="img/rio-01.jpg" data-title="Artist Nirvana" data-date="Sep 2021" aria-label="View larger: Artist Nirvana"><img src="img/rio-01.jpg" width="1000" height="1222" loading="lazy" decoding="async" alt="Rio Events Instagram post: Artist Nirvana"><span class="cap"><b>Artist Nirvana</b><i>Sep 2021</i></span></button></li>
+<li><button class="tile" type="button" data-i="1" data-src="img/rio-02.jpg" data-title="Longest Cake of the City" data-date="Dec 2021" aria-label="View larger: Longest Cake of the City"><img src="img/rio-02.jpg" width="1000" height="984" loading="lazy" decoding="async" alt="Rio Events Instagram post: Longest Cake of the City"><span class="cap"><b>Longest Cake of the City</b><i>Dec 2021</i></span></button></li>
+<li><button class="tile" type="button" data-i="2" data-src="img/rio-03.jpg" data-title="Open Mic" data-date="Aug 2021" aria-label="View larger: Open Mic"><img src="img/rio-03.jpg" width="1000" height="1005" loading="lazy" decoding="async" alt="Rio Events Instagram post: Open Mic"><span class="cap"><b>Open Mic</b><i>Aug 2021</i></span></button></li>
+<li><button class="tile" type="button" data-i="3" data-src="img/rio-04.jpg" data-title="Reborn Party" data-date="Dec 2021" aria-label="View larger: Reborn Party"><img src="img/rio-04.jpg" width="844" height="1180" loading="lazy" decoding="async" alt="Rio Events Instagram post: Reborn Party"><span class="cap"><b>Reborn Party</b><i>Dec 2021</i></span></button></li>
+<li><button class="tile" type="button" data-i="4" data-src="img/rio-05.jpg" data-title="Bolti Kitabe" data-date="Dec 2021" aria-label="View larger: Bolti Kitabe"><img src="img/rio-05.jpg" width="733" height="1036" loading="lazy" decoding="async" alt="Rio Events Instagram post: Bolti Kitabe"><span class="cap"><b>Bolti Kitabe</b><i>Dec 2021</i></span></button></li>
+<li><button class="tile" type="button" data-i="5" data-src="img/rio-06.jpg" data-title="The Rio Tales" data-date="Jan 2022" aria-label="View larger: The Rio Tales"><img src="img/rio-06.jpg" width="1000" height="1000" loading="lazy" decoding="async" alt="Rio Events Instagram post: The Rio Tales"><span class="cap"><b>The Rio Tales</b><i>Jan 2022</i></span></button></li>
+<li><button class="tile" type="button" data-i="6" data-src="img/rio-07.jpg" data-title="Artist Nirvana 2.0" data-date="Mar 2022" aria-label="View larger: Artist Nirvana 2.0"><img src="img/rio-07.jpg" width="1000" height="1015" loading="lazy" decoding="async" alt="Rio Events Instagram post: Artist Nirvana 2.0"><span class="cap"><b>Artist Nirvana 2.0</b><i>Mar 2022</i></span></button></li>
+<li><button class="tile" type="button" data-i="7" data-src="img/rio-08.jpg" data-title="Business in the New Era" data-date="Sep 2022" aria-label="View larger: Business in the New Era"><img src="img/rio-08.jpg" width="1000" height="999" loading="lazy" decoding="async" alt="Rio Events Instagram post: Business in the New Era"><span class="cap"><b>Business in the New Era</b><i>Sep 2022</i></span></button></li>
+<li><button class="tile" type="button" data-i="8" data-src="img/rio-09.jpg" data-title="Now Hiring" data-date="Sep 2022" aria-label="View larger: Now Hiring"><img src="img/rio-09.jpg" width="1000" height="999" loading="lazy" decoding="async" alt="Rio Events Instagram post: Now Hiring"><span class="cap"><b>Now Hiring</b><i>Sep 2022</i></span></button></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="band" id="espresso">
+    <div class="wrap">
+      <div class="esp-head">
+        <p class="mono">University newsletter · My own initiative</p>
+        <h2>The Espresso</h2>
+        <p>I started this newsletter and handle all of it: the writing, the design and the editing. The 30 September 2025 issue moves through affairs, investing, the economy and the arts, with stories on SEBI's IPO rule changes, the rupee's record low and the India–EU trade talks.</p>
+      </div>
+      <ul class="pages" data-set="esp" aria-label="Pages of the 30 September 2025 issue">
+<li><button class="tile" type="button" data-i="0" data-src="img/esp-1.jpg" data-title="Cover" data-date="" aria-label="View larger: Espresso, Cover"><img src="img/esp-1.jpg" width="910" height="1287" loading="lazy" decoding="async" alt="The Espresso, Cover page"><span class="cap"><b>Cover</b><i></i></span></button></li>
+<li><button class="tile" type="button" data-i="1" data-src="img/esp-2.jpg" data-title="Weekly Blend" data-date="Affairs" aria-label="View larger: Espresso, Weekly Blend"><img src="img/esp-2.jpg" width="910" height="1287" loading="lazy" decoding="async" alt="The Espresso, Weekly Blend page"><span class="cap"><b>Weekly Blend</b><i>Affairs</i></span></button></li>
+<li><button class="tile" type="button" data-i="2" data-src="img/esp-3.jpg" data-title="Business Brews" data-date="Investing" aria-label="View larger: Espresso, Business Brews"><img src="img/esp-3.jpg" width="910" height="1287" loading="lazy" decoding="async" alt="The Espresso, Business Brews page"><span class="cap"><b>Business Brews</b><i>Investing</i></span></button></li>
+<li><button class="tile" type="button" data-i="3" data-src="img/esp-4.jpg" data-title="Inksights" data-date="Economy" aria-label="View larger: Espresso, Inksights"><img src="img/esp-4.jpg" width="910" height="1287" loading="lazy" decoding="async" alt="The Espresso, Inksights page"><span class="cap"><b>Inksights</b><i>Economy</i></span></button></li>
+<li><button class="tile" type="button" data-i="4" data-src="img/esp-5.jpg" data-title="Artistic Aromas" data-date="Arts" aria-label="View larger: Espresso, Artistic Aromas"><img src="img/esp-5.jpg" width="910" height="1287" loading="lazy" decoding="async" alt="The Espresso, Artistic Aromas page"><span class="cap"><b>Artistic Aromas</b><i>Arts</i></span></button></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" id="research">
+    <div class="wrap">
+      <h2>Research, design and recognition</h2>
+      <p class="intro">The work behind the campaigns: market research, a published paper, client design work and a competition win.</p>
+      <div class="entries">
+        <div class="entry">
+          <p class="mono">Market research and strategy · Dec 2024 – Jan 2025</p>
+          <h3>Bioxera Pharma</h3>
+          <p>Ran primary and secondary research, competitor analysis and market mapping to find opportunities. Turned the findings into marketing and outreach recommendations. The project earned a Letter of Recommendation.</p>
+        </div>
+        <div class="entry">
+          <p class="mono">Research paper</p>
+          <h3>Published in a Scopus-indexed marketing journal</h3>
+          <p>A research paper on marketing, published in a Scopus-indexed journal.</p>
+        </div>
+        <div class="entry">
+          <p class="mono">Graphic design · Jan 2023 – Dec 2023</p>
+          <h3>Pictora Digital</h3>
+          <p>Worked with clients to understand campaign requirements, target audiences and brand objectives. Created digital creatives and marketing assets, and coordinated revisions and deliverables.</p>
+        </div>
+        <div class="entry">
+          <p class="mono">Competition</p>
+          <h3>Winner, business plan competition</h3>
+          <p>Won the university-level business plan competition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="skills">
+    <div class="wrap">
+      <h2>Skills and tools</h2>
+      <div class="groups">
+        <div>
+          <h3>Marketing</h3>
+          <ul>
+            <li>Strategic marketing planning</li>
+            <li>Digital marketing</li>
+            <li>Social media marketing</li>
+            <li>Content strategy</li>
+            <li>Campaign management</li>
+            <li>Brand communication</li>
+            <li>Lead generation</li>
+            <li>Customer engagement</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Research</h3>
+          <ul>
+            <li>Healthcare and pharma market research</li>
+            <li>Primary and secondary research</li>
+            <li>Competitor analysis</li>
+            <li>Market mapping</li>
+            <li>Customer insights</li>
+            <li>Industry trend analysis</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Analytics</h3>
+          <ul>
+            <li>Marketing performance tracking</li>
+            <li>KPI tracking</li>
+            <li>Excel-based MIS</li>
+            <li>Data visualization</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Tools</h3>
+          <ul>
+            <li>Canva</li>
+            <li>Adobe Photoshop</li>
+            <li>Adobe Illustrator</li>
+            <li>Video editing</li>
+            <li>Microsoft Excel</li>
+            <li>Power BI</li>
+            <li>ChatGPT and other generative AI tools</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="edu">
+        <div>
+          <h3>Education</h3>
+          <ul>
+            <li>MBA, Marketing<small>Universal AI University · 2024–2026</small></li>
+            <li>B.Com<small>DP Vipra Mahavidyalaya · 2022 · 80.72%</small></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Certifications</h3>
+          <ul>
+            <li>AI in Marketing Strategy and Creativity<small>edX</small></li>
+            <li>SEO<small>eMarketing Institute</small></li>
+            <li>Content Marketing<small>HubSpot Academy</small></li>
+            <li>Canva Essentials and Graphic Design Essentials<small>Canva</small></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band contact" id="contact">
+    <div class="wrap">
+      <p class="mono">Contact</p>
+      <h2 style="margin-top:12px">Let's talk about the role.</h2>
+      <p class="mail"><a id="mailText" href="mailto:shivammourya220@gmail.com">shivammourya220@gmail.com</a></p>
+      <div class="actions">
+        <button class="btn primary" id="copyMail" type="button">Copy email</button>
+        <a class="btn" href="https://www.linkedin.com/in/shivam-mourya" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      </div>
+      <p class="note" id="copyNote" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Shivam Mourya · Mumbai</div>
+</footer>
+
+<div id="lb" hidden role="dialog" aria-modal="true" aria-label="Post viewer">
+  <div class="lb-top">
+    <span class="lb-title" id="lbCap"></span>
+    <button class="lb-btn" id="lbClose" type="button">Close</button>
+  </div>
+  <div class="lb-stage"><img id="lbImg" alt=""></div>
+  <div class="lb-nav">
+    <button class="lb-btn" id="lbPrev" type="button">Previous</button>
+    <span class="lb-count" id="lbCount"></span>
+    <button class="lb-btn" id="lbNext" type="button">Next</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lb'), img=document.getElementById('lbImg'),
+      cap=document.getElementById('lbCap'), cnt=document.getElementById('lbCount'),
+      closeBtn=document.getElementById('lbClose');
+  var sets={}, cur=null, idx=0, opener=null;
+
+  [].forEach.call(document.querySelectorAll('[data-set]'), function(ul){
+    var key=ul.getAttribute('data-set');
+    sets[key]=[].map.call(ul.querySelectorAll('.tile'), function(b){
+      return {src:b.getAttribute('data-src'), t:b.getAttribute('data-title'), d:b.getAttribute('data-date')};
+    });
+    ul.addEventListener('click', function(e){
+      var b=e.target.closest('.tile'); if(!b) return;
+      open(key, parseInt(b.getAttribute('data-i'),10), b);
+    });
+  });
+
+  function show(){
+    var m=sets[cur][idx];
+    img.src=m.src; img.alt=m.t;
+    cap.textContent=m.t+(m.d?' · '+m.d:'');
+    cnt.textContent=(idx+1)+' / '+sets[cur].length;
+  }
+  function open(key,i,from){
+    cur=key; idx=i; opener=from||null;
+    show(); lb.hidden=false;
+    document.documentElement.style.overflow='hidden';
+    closeBtn.focus();
+  }
+  function close(){
+    lb.hidden=true; img.removeAttribute('src');
+    document.documentElement.style.overflow='';
+    if(opener){ try{ opener.focus(); }catch(e){} }
+  }
+  function step(n){
+    var len=sets[cur].length; idx=(idx+n+len)%len; show();
+  }
+  closeBtn.addEventListener('click', close);
+  document.getElementById('lbPrev').addEventListener('click', function(){ step(-1); });
+  document.getElementById('lbNext').addEventListener('click', function(){ step(1); });
+  lb.addEventListener('click', function(e){ if(e.target===lb || e.target.classList.contains('lb-stage')) close(); });
+  document.addEventListener('keydown', function(e){
+    if(lb.hidden) return;
+    if(e.key==='Escape') close();
+    else if(e.key==='ArrowLeft') step(-1);
+    else if(e.key==='ArrowRight') step(1);
+  });
+
+  var btn=document.getElementById('copyMail'), note=document.getElementById('copyNote'), mail=document.getElementById('mailText');
+  function selectMail(){
+    try{
+      var r=document.createRange(); r.selectNodeContents(mail);
+      var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    }catch(e){}
+    note.textContent='Email address selected. Copy it from the selection.';
+  }
+  btn.addEventListener('click', function(){
+    try{
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(mail.textContent.trim()).then(function(){ note.textContent='Copied.'; }, selectMail);
+      } else { selectMail(); }
+    }catch(e){ selectMail(); }
+  });
+})();
+</script>
+
+</body></html>
